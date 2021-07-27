@@ -101,7 +101,9 @@ END;
 ```
 
 command for listing the contents of DATA_PUMP_DIR directory:
+
 select * from table(RDSADMIN.RDS_FILE_UTIL.LISTDIR('DATA_PUMP_DIR')) where trunc(mtime)=trunc(sysdate) order by mtime;
 
 command for view the contents of log file:
+
 select * from table(RDSADMIN.RDS_FILE_UTIL.READ_TEXT_FILE('DATA_PUMP_DIR','import_schema_name_Jul272021.log'));
