@@ -31,13 +31,13 @@ dbms_output.put_line(sqlerrm);
 END;
 ```
 command for listing the contents of DATA_PUMP_DIR directory:
-
+```
 select * from table(RDSADMIN.RDS_FILE_UTIL.LISTDIR('DATA_PUMP_DIR')) where trunc(mtime)=trunc(sysdate) order by mtime;
-
+```
 command for view the contents of log file:
-
+```
 select * from table(RDSADMIN.RDS_FILE_UTIL.READ_TEXT_FILE('DATA_PUMP_DIR','log_file_name.log'));
-
+```
 
 Procedure for moving dumpfile to S3 bucket:
 ```
@@ -51,9 +51,9 @@ SELECT rdsadmin.rdsadmin_s3_tasks.upload_to_s3(
 At Target server:
 
 command for listing the contents of DATA_PUMP_DIR directory:
-
+```
 select * from table(RDSADMIN.RDS_FILE_UTIL.LISTDIR('DATA_PUMP_DIR')) where trunc(mtime)=trunc(sysdate) order by mtime;
-
+```
 
 Procedure for dowloading the dumpfile from S3 bucket:
 ```
@@ -64,9 +64,9 @@ SELECT rdsadmin.rdsadmin_s3_tasks.download_from_s3(
    AS TASK_ID FROM DUAL; 
 ```
 command for listing the contents of DATA_PUMP_DIR directory:
-
+```
 select * from table(RDSADMIN.RDS_FILE_UTIL.LISTDIR('DATA_PUMP_DIR')) where trunc(mtime)=trunc(sysdate) order by mtime;
-
+```
 
 
 Below is the procedure for restoring the dumpfile backup to target schema (Usually at Dev/Test):
@@ -101,9 +101,10 @@ END;
 ```
 
 command for listing the contents of DATA_PUMP_DIR directory:
-
+```
 select * from table(RDSADMIN.RDS_FILE_UTIL.LISTDIR('DATA_PUMP_DIR')) where trunc(mtime)=trunc(sysdate) order by mtime;
-
+```
 command for view the contents of log file:
-
+```
 select * from table(RDSADMIN.RDS_FILE_UTIL.READ_TEXT_FILE('DATA_PUMP_DIR','import_schema_name.log'));
+```
