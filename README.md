@@ -2,7 +2,7 @@
 
 Step by step procedure for schema backup and restore accross the environments@AWS Oracle RDS.
  
-Below is the procedure for taking expdp backup at source(Usually production):
+Below is the procedure for taking expdp backup at source(Usually at production):
 
 ```
 declare
@@ -69,7 +69,7 @@ select * from table(RDSADMIN.RDS_FILE_UTIL.LISTDIR('DATA_PUMP_DIR')) where trunc
 
 
 
-Below is the procedure for restoring the dumpfile backup to target schema (Usually Dev/Test):
+Below is the procedure for restoring the dumpfile backup to target schema (Usually at Dev/Test):
 
 ```
 declare
