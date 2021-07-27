@@ -85,7 +85,7 @@ DBMS_DATAPUMP.ADD_FILE(HANDLE    => L_DP_HANDLE,
 			);
 
 DBMS_DATAPUMP.ADD_FILE(HANDLE    => L_DP_HANDLE,
-			filename  => 'import_schema_name_Jul272021.log',
+			filename  => 'import_schema_name.log',
 			directory => 'DATA_PUMP_DIR',
 			FILETYPE  => DBMS_DATAPUMP.KU$_FILE_TYPE_LOG_FILE
 			);
@@ -106,4 +106,4 @@ select * from table(RDSADMIN.RDS_FILE_UTIL.LISTDIR('DATA_PUMP_DIR')) where trunc
 
 command for view the contents of log file:
 
-select * from table(RDSADMIN.RDS_FILE_UTIL.READ_TEXT_FILE('DATA_PUMP_DIR','import_schema_name_Jul272021.log'));
+select * from table(RDSADMIN.RDS_FILE_UTIL.READ_TEXT_FILE('DATA_PUMP_DIR','import_schema_name.log'));
