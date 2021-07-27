@@ -1,5 +1,7 @@
 # RDS_Oracle_Expdp_Impdp
 
+Step by step procedure for schema backup and restore accross the environments@AWS Oracle RDS.
+ 
 Below is the procedure for taking expdp backup at source(Usually production):
 
 ```
