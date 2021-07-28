@@ -110,3 +110,10 @@ command for view the contents of log file:
 ```
 select * from table(RDSADMIN.RDS_FILE_UTIL.READ_TEXT_FILE('DATA_PUMP_DIR','import_schema_name.log'));
 ```
+
+Command for deleting the dump/log files from DATA_PUMP_DIR:
+
+```
+exec utl_file.fremove('DATA_PUMP_DIR','import_schema_name.log');
+exec utl_file.fremove('DATA_PUMP_DIR','dump_file_name.dmp');
+```
