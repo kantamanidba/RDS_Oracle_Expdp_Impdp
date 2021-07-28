@@ -4,7 +4,7 @@ Prerequisites: Amazon RDS should integrated with Amazon S3
 
 Step by step procedure for schema backup and restore accross the environments@AWS Oracle RDS.
  
-Below is the procedure for taking expdp backup at source(Usually at production):
+Below is the procedure for taking expdp backup at source(usually at production):
 
 ```
 declare
@@ -71,7 +71,7 @@ select * from table(RDSADMIN.RDS_FILE_UTIL.LISTDIR('DATA_PUMP_DIR')) where trunc
 ```
 
 
-Below is the procedure for restoring the dumpfile backup to target schema (Usually at Dev/Test):
+Below is the procedure for restoring the dumpfile backup to target schema (usually at Dev/Test):
 
 ```
 declare
@@ -111,7 +111,7 @@ command for view the contents of log file:
 select * from table(RDSADMIN.RDS_FILE_UTIL.READ_TEXT_FILE('DATA_PUMP_DIR','import_schema_name.log'));
 ```
 
-Command for deleting the dump/log files from DATA_PUMP_DIR:
+command for deleting the dump/log files from DATA_PUMP_DIR:
 
 ```
 exec utl_file.fremove('DATA_PUMP_DIR','import_schema_name.log');
