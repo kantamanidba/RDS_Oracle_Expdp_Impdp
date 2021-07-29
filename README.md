@@ -62,7 +62,7 @@ Procedure for dowloading the dumpfile from S3 bucket:
 ```
 SELECT rdsadmin.rdsadmin_s3_tasks.download_from_s3(
       p_bucket_name    =>  'BUCKET_NAME', 
-	p_s3_prefix    =>  'dump_file_name.dmp',      
+      p_s3_prefix      =>  'dump_file_name.dmp',      
       p_directory_name =>  'DATA_PUMP_DIR') 
    AS TASK_ID FROM DUAL; 
 ```
@@ -81,13 +81,13 @@ L_DP_HANDLE number;
 begin
 L_DP_HANDLE := DBMS_DATAPUMP.open(OPERATION => 'IMPORT',JOB_MODE => 'SCHEMA',version=> 'LATEST',JOB_NAME=>'SCHEMA_NAME_IMPORT');
 
-DBMS_DATAPUMP.ADD_FILE(HANDLE      => L_DP_HANDLE,
+DBMS_DATAPUMP.ADD_FILE( HANDLE     => L_DP_HANDLE,
 			filename   => 'dump_file_name.dmp',
 			filetype   => dbms_datapump.ku$_file_type_dump_file,
 			directory  => 'DATA_PUMP_DIR'
 			);
 
-DBMS_DATAPUMP.ADD_FILE(HANDLE      => L_DP_HANDLE,
+DBMS_DATAPUMP.ADD_FILE( HANDLE     => L_DP_HANDLE,
 			filename   => 'import_schema_name.log',
 			directory  => 'DATA_PUMP_DIR',
 			FILETYPE   => DBMS_DATAPUMP.KU$_FILE_TYPE_LOG_FILE
