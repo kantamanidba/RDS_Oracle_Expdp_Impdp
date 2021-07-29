@@ -24,6 +24,7 @@ DBMS_DATAPUMP.ADD_FILE(HANDLE    => L_DP_HANDLE,
                        directory => 'DATA_PUMP_DIR',
                        FILETYPE  => DBMS_DATAPUMP.KU$_FILE_TYPE_LOG_FILE,
                        REUSEFILE => 1);
+		       
 dbms_datapump.metadata_filter(handle => l_dp_handle, name => 'SCHEMA_LIST', value => '''SCHEMA_NAME''');                    
 Dbms_DataPump.Start_Job(l_dp_handle);
 DBMS_DATAPUMP.detach(l_dp_handle);
